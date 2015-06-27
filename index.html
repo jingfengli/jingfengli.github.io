@@ -1,50 +1,414 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Jingfeng Li</h1>
-<h2>Github Projects</h2>
-<h3><a href="https://github.com/jingfengli/fcMRIModel"> fcMRI model</a></h3>
-<p>This is a python implementation of the model described in Honey et.al 2007 PNAS, with expansion to capture both ultra-slow (minutes) and ultra-fast (millisecond) neural dynamics.
-</p>
-<h3><a href="https://github.com/jingfengli/DigitRecognitionNeuralNetwork"> Digit Recognition Neural Network</a></h3>
-<p>The network is initally developed for a graduate school class project
-</p>
-<p>
-This is a multilayer perceptron used for recognizing handwritten digits. 
-Training is fulfilled using back-propagation algorithm. 
-I used a popular dataset (‘mnist_all.dat’) comprising of training and testing samples of the different digits is provided in the Midterm folder. Each sample is 28x28 gray scale 8-bit image.
-</p>
-<h3><a href="https://github.com/jingfengli/RegressionBasedDependency"> Regression Based Dependency Analysis</a></h3>
-<p>MATLAB code for regression based dependency 
-</p>
-<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-</p>
-<p>Results are published in 'Li J, Bentley W, Snyder L. Neural Correlates of Functional Connectivity. Organization for Human Brain Mapping, 2015.' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-</p>
-<p>
-The goal is to address whether one process drives the correlation between two other signals. Ideally, one should extract just the shared (correlated) component, and then using causality analysis (e.g., Granger causality analysis or transfer entropy) to determine whether the process of interest drives that correlated component. Methods extracting the correlated component require a large number of correlated signals as input to operate properly. With small amount of correlated signals, the extracted component will necessarily include a substantial amount of non-correlated signal, regardless of the precise method used. Regression based dependency analysis circumvents the need of extracting the correlated component. It estimates the extent to which regressing out the signal can diminish the correlation.
-</p>
+<html lang="en">
 
-<h2>Publications</h2>
-<h3><h3>Conference Publications:</h3>
-<p>Li J, Bentley W, Snyder L. Functional Connectivity in Unit Activity. Organization for Human Brain Mapping, 2015. 
-</p>
-<p>Li J, Bentley W, Snyder L. Neural Correlates of Functional Connectivity. Organization for Human Brain Mapping, 2015.
-</p>
-<p>Li J, Bentley W, Snyder L. Neural activity underlying functional connectivity MRI. Society for Neuroscience, 481.01. 2014 
-</p>
-<p>Bentley WJ, Li J, Snyder A, Raichle M, Snyder L. Functional connectivity arises from a slow rhythmic mechanism. Society for Neuroscience, 481.03. 2014 
-</p>
-<p>Bently W, Li J, Snyder A, Raichle M, Snyder L. Bridging BOLD fMRI and Electrophysiology: Oxygen polarography in awake macaques. Organization for Human Brain Mapping, 2013.
-</p>
-<p>Bently W, Li J, Snyder A, Raichle M, Snyder L. Oxygen polarography and electrophysiology in the default-mode and dorsal-attention networks during rest and stimulation: Bridging BOLD fMRI and electrophysiology. Society for Neuroscience, 586.05. 2013
-</p>
-<h3>Journal Publications:</h3>
-<p>Li JM, Bentley WJ, Snyder AZ, Raichle M, Snyder LH (2015) Functional connectivity arises from a slow rhythmic mechanism, Proc Natl Acad Sci U S A. In press. <a href="http://www.pnas.org/content/112/19/E2527.abstract"> download</a>
-</p>
-<p>Bentley WJ*, Li JM*, Snyder AZ, Raichle M, Snyder LH (2014) Oxygen level and LFP in task positive and task negative areas: Bridging BOLD fMRI and electrophysiology. Cerebral Cortex: In press. (* Equal contribution) <a href="http://cercor.oxfordjournals.org/content/early/2014/11/10/cercor.bhu260.abstract"> download</a>
-</p>
-<p>Kubanek J, Li JM, Snyder LH (2015) Motor role of parietal cortex in a monkey model of hemi-spatial neglect, Proc Natl Acad Sci U S A. In press. <a href="http://www.pnas.org/content/112/16/E2067"> download</a>
-</p>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jingfeng Li">
+
+    <title>Jingfeng Li </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Github Projects</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Publications">Publications & Talks</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#MyResume">My Resume</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Jingfeng Li</h1>
+                        <p class="intro-text">A graduate student</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="about" class="container content-section ">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+	            <h1>GitHub Projects</h1>
+                <h2><a href="https://github.com/jingfengli/fcMRIModel"> fcMRI model</a></h2>
+                <p>A python project of the model described in Honey et.al 2007 PNAS, with expansion to capture both ultra-slow (minutes) and ultra-fast (millisecond) neural dynamics.
+                </p>
+                <h2><a href="https://github.com/jingfengli/DigitRecognitionNeuralNetwork"> Digit Recognition Neural Network</a></h2>
+				<p>The network is initially developed as a graduate school class project. It is a multilayer perceptron used for recognizing handwritten digits. Training is fulfilled by using back-propagation algorithm. I used a popular dataset (‘mnist_all.dat’) comprising of training and testing samples of the different digits is provided in the Midterm folder. Each sample is 28x28 gray scale 8-bit image.
+				</p>
+				<h2><a href="https://github.com/jingfengli/RegressionBasedDependency"> Regression Based Dependency Analysis</a></h2>
+				<h4>MATLAB code for regression based dependency </h4> 
+				<p>
+				The goal is to address whether one process drives the correlation between two other signals. Ideally, one should extract just the shared (correlated) component, and then using causality analysis (e.g., Granger causality analysis or transfer entropy) to determine whether the process of interest drives that correlated component. Methods extracting the correlated component require a large number of correlated signals as input to operate properly. With small amount of correlated signals, the extracted component will necessarily include a substantial amount of non-correlated signal, regardless of the precise method used. Regression based dependency analysis circumvents the need of extracting the correlated component. It estimates the extent to which regressing out the signal can diminish the correlation.<br><br>
+				<font size = '2'>Results are published in 'Li J, Bentley W, Snyder L. Neural Correlates of Functional Connectivity. Organization for Human Brain Mapping, 2015.'</font> <br>
+				</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publication Section -->
+    <section id="Publications" class="content-section">
+        <div class="Publications-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+				<h2>Publications & Talks</h2>
+				<h3>Publications</h3>
+				<hr>
+				<p><b>Li JM</b>, Bentley WJ, Snyder AZ, Raichle M, Snyder LH (2015) Functional connectivity arises from a slow rhythmic mechanism, <i>Proc Natl Acad Sci U S A. <a href="http://www.pnas.org/content/112/19/E2527.abstract"> In press.</i></a>
+				</p>
+				<p>Bentley WJ*, <b>Li JM*,</b> Snyder AZ, Raichle M, Snyder LH (2014) Oxygen level and LFP in task positive and task negative areas: Bridging BOLD fMRI and electrophysiology. <i>Cerebral Cortex: <a href="http://cercor.oxfordjournals.org/content/early/2014/11/10/cercor.bhu260.abstract">In press. </i></a> (* Equal contribution)
+				</p>
+				<p>Kubanek J, <b>Li JM, </b> Snyder LH (2015) Motor role of parietal cortex in a monkey model of hemi-spatial neglect, <i>Proc Natl Acad Sci U S A. <a href="http://www.pnas.org/content/112/16/E2067">In press.</a></i>
+				</p>
+				<p><b>Li J,</b> Bentley W, Snyder L. Functional Connectivity in Unit Activity. <i><a href ="https://ww4.aievolution.com/hbm1501/files/content/abstracts/42892/2443_Li.pdf">Organization for Human Brain Mapping, 2015. </i></a>
+				</p>
+				<p><b>Li J,</b> Bentley W, Snyder L. Neural Correlates of Functional Connectivity. <i><a href ="https://ww4.aievolution.com/hbm1501/files/content/abstracts/43023/2442_Li.pdf">Organization for Human Brain Mapping, 2015.</i></a>
+				</p>
+				<p><b>Li J,</b> Bentley W, Snyder L. Neural activity underlying functional connectivity MRI. <i><a href ='http://www.sfn.org/~/media/SfN/Documents/Annual%20Meeting/FinalProgram/NS2014/FullAbstractPDFs_2014/SFN2014_Abstracts_PDF_Nanos.ashx'>Society for Neuroscience, 481.01. 2014 </i></a>
+				</p>
+				<p>Bentley WJ, <b>Li J,</b> Snyder A, Raichle M, Snyder L. Functional connectivity arises from a slow rhythmic mechanism. <i><a href ='http://www.sfn.org/~/media/SfN/Documents/Annual%20Meeting/FinalProgram/NS2014/FullAbstractPDFs_2014/SFN2014_Abstracts_PDF_Nanos.ashx'>Society for Neuroscience, 481.03. 2014 </i></a>
+				</p>
+				<p>Bently W, <b>Li J,</b> Snyder A, Raichle M, Snyder L. Bridging BOLD fMRI and Electrophysiology: Oxygen polarography in awake macaques.<i> <a href='http://www.humanbrainmapping.org/files/2013MeetingFiles/OHBM_2013_Poster_Listings.pdf'>Organization for Human Brain Mapping, 2013.</i></a>
+				</p>
+				<p>Bently W, <b>Li J,</b> Snyder A, Raichle M, Snyder L. Oxygen polarography and electrophysiology in the default-mode and dorsal-attention networks during rest and stimulation: Bridging BOLD fMRI and electrophysiology.<i><a href="http://www.abstractsonline.com/Plan/ViewAbstract.aspx?sKey=b4b70a4d-ffd0-43c3-8f93-acf07081f9c0&cKey=e069d62f-b186-4b6a-8eb7-9aded1816dbc&mKey=%7b8D2A5BEC-4825-4CD6-9439-B42BB151D1CF%7d"> Society for Neuroscience, 586.05. 2013</i></a>
+				</p>
+				<h3>Selected Talks</h3>
+				<hr>
+					<table style="width:100%">
+					<col align="left">
+					<col align="right">
+					<tr>
+						<td><b>Neural activity underlying functional connectivity MRI </b></td>
+						<td class = 'text-right'><b>2014</b></td>
+  					</tr>
+  					<tr>
+  						<td><span style="margin-left:64px"></span>Society for Neuroscience Conference</td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>Washington, DC</td>
+					</tr>
+										<tr>
+						<td><b>Neural activity underlying functional connectivity MRI </b></td>
+						<td class = 'text-right'><b>2014</b></td>
+  					</tr>
+  					<tr>
+  						<td><span style="margin-left:64px"></span>Society for Neuroscience Conference</td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>Washington, DC</td>
+					</tr>
+					<tr>
+						<td><b>Neural mechanisms of functional connectivity MR imaging</b></td>
+						<td class = 'text-right'><b>2014</b></td>
+  					</tr>
+  					<tr>
+  						<td><span style="margin-left:64px"></span>Anatomy and Neurobiology Department Trainee Seminar </td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>St Louis, MO</td>
+					</tr>
+					<tr>
+						<td><b>Oxygen level and local field potential in a default mode area:  </b></td>
+						<td class = 'text-right'><b>2013</b></td>
+  					</tr>
+  					<tr>
+						<td><b>Bridging BOLD fMRI and electrophysiology  </b></td>
+  					</tr>
+  					<tr>
+  						<td><span style="margin-left:64px"></span>Society for Neuroscience Conference</td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>San Diego, CA</td>
+					</tr>
+					<tr>
+						<td><b>Local Oxygen Fluctuations in the Brain  </b></td>
+						<td class = 'text-right'><b>2012</b></td>
+  					</tr>
+  					<tr>
+  						<td><span style="margin-left:64px"></span>Cognitive, Computational and Systems Neuroscience Symposium</td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>St Louis, MO</td>
+					</tr>
+					</table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MyResume  -->
+    <section id="MyResume" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Jingfeng Li</h2>
+                <div class ='text-left'>
+                	<h3>Education</h3>
+                	<hr></hr>
+                	<table style="width:100%">
+					<col align="left">
+					<col align="left">
+					<col align="left">
+					<col align="right">
+					<tr>
+						<td>Ph.D.</td>
+						<td>Neuroscience (Computational)</td>
+						<td>Washington University in St. Louis</td>
+						<td class = 'text-right'>2015</td>
+  					</tr>
+  					<tr>
+  						<td>B.S. </td>
+  						<td>Biotechnology</td>
+  						<td>Peking University, China</td>
+  						<td class = 'text-right'>2010</td>
+  					</tr>
+					</table>
+					<p><br></p>
+                </div>
+                <div class ='text-left'>
+                	<h3>Work Experience</h3>
+                	<hr></hr>
+                	<table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>Graduate Researcher/Postdoctoral Fellow</h4></td>
+						<td class = 'text-right'><h4>2010-present</h4></td>
+  					</tr>
+  					</table>
+  					<p>My research seeks to identify the mechanisms driving functional organization of the brain by determining causal relationships among various neural processes based on their spatial and temporal dynamics. My work resulted in 3 research papers (2 in Proceedings of the National Academy of Sciences [PNAS]), 5 conference abstracts, 3 conference posters and 1 symposium talk.
+	  				</p>
+	  				<pp> Machine Learning and Novel Feature Detection </pp>
+		  			<px><br>
+		  			•	Developed an adaptive template-matching method based on semi-supervised machine learning to identify features associated with physiological noise sources 
+		  			<br><span style="margin-left:64px"></span><i>o	Reduced noise contamination by 10 folds <br></i>
+		  			•	Developed statistical models to detect abnormal features, including substantial data mining and feature extraction from unstructured data<br>
+		  			•	Implemented a physiologically relevant feature-based K-mean clustering for spike sorting, decreasing the false negative rate by 20% 
+
+		  			</px><br><br>
+		  			<pp>Neural Network Modeling</pp>
+		  			<px><br>
+		  			•	Designed and implemented a neural network model (> 500 connections), pioneering in capturing the boardband neural dynamics <br>
+		  			•	Prototyped the network using MATLAB and migrated it to Python, leading to a 25% reduction in running time
+					</px><br><br>
+					<pp>Causality Analysis</pp>
+					<px><br>
+					•	Developed general theories into hypotheses with testable predictions. <br>
+					•	Developed a method to extract a novel feature and differentiate these hypotheses, leading to a paper in PNAS and a successful funding proposal of $380,000<br>
+					•	Built multivariate linear and non-linear statistical tools to uncover causal relationship among multiple neural processes based on information theory and Granger causality. Discovered novel and critical causal links, resolving conflicts in the literature
+					</px><br><br>
+					<pp>Hardware and Pipeline development</pp>
+					<px><br>
+					•	Developed an apparatus that facilitates simultaneous recording of various neural and physiological dynamics, including local field potential, tissue oxygen level, EEG, eye-position, and activities from both a single neuron and multi-neurons units <br>
+					•	Built a pipeline from data collection, to data transfer, statistical analysis, and result visualization, using C, Shell scripting and MATLAB <br>
+					•	Built a system in C that both tracks an experimental animal’s performance in a task and instantaneously modifies task design based on the performance
+					</px><br><br><br>
+					<table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>Part-time Consultant</h4></td>
+						<td class = 'text-right'><h4>2014-2015</h4></td>
+  					</tr>
+  					</table>
+  					<p>Evaluated a startup company (Mobius ABX) for BioGenerator, an investment firm
+		  			<px><br>
+		  			•	Evaluated market size, profit margin, competitive landscape, regulatory and technical assessments, and alternative markets for a novel drug developed by Mobius ABX to treat endophthalmitis<br>
+		  			•	Conducted primary research and primary interviews with physicians and pharmacists to identify state of the art endophthalmitis treatments and receptiveness to new treatment options<br>
+		  			•	Co-authored a report for BioGenerator based on compiled research, which was used as a primary source in funding decisions
+		  			</px><br>
+		  			<p>Patent analysis involving a range of fields, including next generation DNA sequencing, bio-sensing nanoparticles, and cancer therapy<br></p>
+                </div><br><br>
+                <div class ='text-left'>
+	                <h3>Other Experiences</h3>
+	                <hr>
+	                <table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>Teaching Assistant</h4></td>
+						<td class = 'text-right'><h4>2011</h4></td>
+  					</tr>
+  					</table>
+  					<pp>Neurophysiology Lab, BIO 404</pp>
+	                <px><br>
+		  			•	Prepared and delivered course materials, led group discussion, performed laboratory demonstrations<br>
+		  			•	Graded and provided feedback on experimental reports
+		  			</px><br><br><br>
+		  			<table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>NeuroDay Presenter, Saint Louis Science Center</h4></td>
+						<td class = 'text-right'><h4>2011</h4></td>
+  					</tr>
+  					</table>
+	                <px>
+	                •	Created and led a demonstration to illustrate the limitations of the human attention span<br>
+					•	Reviewed the literature on the neural mechanism of attention <br>
+					•	Designed an intuitive heuristic that was accessible to non-experts
+
+		  			</px><br><br><br>
+		  			<table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>Director of Organization Department, Peking University Chinese Literature Club</h4></td>
+						<td class = 'text-right'><h4>2008</h4></td>
+  					</tr>
+  					</table>
+		  			<br>
+		  			<table style="width:100%">
+					<col align="right">
+					<col align="right">
+					<tr>
+						<td><h4>Summer Olympic and Special Olympic Volunteer </h4></td>
+						<td class = 'text-right'><h4>2008</h4></td>
+  					</tr>
+  					</table>
+  					<br>
+	            </div>
+	            <br><br>  
+	            <div class ='text-left'>
+		            <h3>Technical Skills</h3>
+	                <hr>
+	                <p>C, Python, MATLAB, SQL<br>
+					Statistical analysis, probabilistic theory, information theory, machine learning, neural networks<br>
+					Unix/Linux (Shell scripting)</p>
+
+	            </div>
+	            <br><br>
+		        <div class ='text-left'>
+		            <h3>Awards and Honors</h3>
+	                <hr>
+	                <table style="width:100%">
+					<col align="left">
+					<col align="right">
+					<tr>
+						<td><b>Finalist for O'Leary Prize</b></td>
+						<td class = 'text-right'><b>2015</b></td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>(award recognizing outstanding dissertation research)</td>
+  					</tr>
+  					<tr>
+						<td><b>Acceptance into Cognitive, Computational, and Systems Neuroscience pathway</b></td>
+						<td class = 'text-right'><b>2014</b></td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>(National Institutes of Health funded training program)</td>
+  					</tr>
+  					<tr>
+						<td><b>Ellen Eoyang Scholarship </b></td>
+						<td class = 'text-right'><b>2008</b></td>
+  					</tr>
+  					<tr>
+						<td><span style="margin-left:64px"></span>(Award recognizing outstanding academic performance)</td>
+  					</tr>
+  					<tr>
+						<td><b>Outstanding Olympics Volunteer Award</b></td>
+						<td class = 'text-right'><b>2008</b></td>
+  					</tr>
+  					</table>
+	            </div>
+	            
+	            <br><br><br><hr><br><br><br><br><br>
+	            <h1>CONTACT INFO</h1>      	
+                <p>Jingfeng Li <br><a href="jingfengmli@gmail.com">jingfengmli@gmail.com</a><br>
+                314-616-2743
+                </p>
+                <ul class="list-inline banner-social-buttons"> 
+                    <li>
+                        <a href="https://github.com/jingfengli" class="btn btn-default btn-lg"><span class="network-name">GitHub</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jingfengmli" class="btn btn-default btn-lg"> <span class="network-name">LinkedIn</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.researchgate.net/profile/Jingfeng_Li5" class="btn btn-default btn-lg"><span class="network-name">ResearchGate</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Jingfeng Li 2015</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
 </body>
+
 </html>
