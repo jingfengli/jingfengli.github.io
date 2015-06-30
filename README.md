@@ -1,3 +1,3 @@
-# [Jingfeng Li] "jingfengli.github.io"
+# [Jingfeng Li](http://"jingfengli.github.io)  
 Homepage
 Work in progress
